@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"/>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div class="profile-card">
+    <div class="card-header">
+      <div class="pic">
+        <img src="/img/aink3.jpeg" alt="">
+      </div>
+      <div class="name">Ubay Dillah</div>
+      <div class="desc">Learn Programming</div>
+      <div class="sm">
+        <a href="https://instagram.com/baaay1701" class="fab fa-instagram"></a>
+        <a href="https://facebook.com/ubay.wongmalang" class="fab fa-facebook-f"></a>
+        <a href="https://github.com/BAY406" class="fab fa-github"></a>
+        <a href="https://youtube.com/@senyum_itu_ibadah1" class="fab fa-youtube"></a>
+      </div>
+      <a href="https://wa.me/628312372728" class="contact-btn">Contact Me</a>
+      <!--My Music-->
+      <button onclick="toggleMusic()" id="btn-playback" data-play="false">
+        <i class="Fa-Play"></i>
+        <a id="btn-text" class="contact-btn">PLAY MUSIC</a>
+      </button>
+      <audio id="audio" src="/music/Those Eyes.mp3">
+      <!--End-->
+    </div>
+    <div class="card-footer">
+      <div class="numbers">
+        <div class="item">
+          <span>80%</span>
+          Html
+        </div>
+        <div class="border"></div>
+        <div class="item">
+          <span>70%</span>
+          Css
+        </div>
+        <div class="border"></div>
+        <div class="item">
+          <span>10%</span>
+          JavaScript
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--Play & Pause Music-->
+  <script>
+    const myAudio = document.getElementById("audio");
+    const btn = document.getElementById("btn-playback");
+    const btnIcon = document.querySelector("#btn-playback > i");
+    const btnText = document.getElementById("btn-text");
+    
+    const toggleMusic = () => {      
+      const dataPlay = btn.getAttribute('data-play');
+            
+      if(dataPlay === 'false') {
+        btn.setAttribute('data-play', 'true');
+        myAudio.play();
+        btnIcon.classList.remove("Fa-Play");
+        btnIcon.classList.add("Fa-Pause");
+        btnText.innerText = "PAUSE MUSIC";
+      } else {
+        btn.setAttribute('data-play', 'false');
+        myAudio.pause();
+        btnIcon.classList.remove("Fa-Pause");
+        btnIcon.classList.add("Fa-Play");
+        btnText.innerText = "PLAY MUSIC";
+      }
+    };
+    
+    myAudio.onpause = () => {
+      btn.setAttribute('data-play', 'false');
+        myAudio.pause();
+        btnIcon.classList.remove("Fa-Pause");
+        btnIcon.classList.add("Fa-Play");
+        btnText.innerText = "PLAY MUSIC";
+    };
+  </script>
+  <!--End-->
+</body>
+</html>
